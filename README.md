@@ -5,12 +5,12 @@
 
 [GitHub](https://github.com/Renestl) | [FreeCodeCamp](https://www.freecodecamp.com/renestl) | [Codepen](http://codepen.io/renestl/pen/ORdNKZ) | [LinkedIn]() | [Twitter](@robinskrizan)
 
-Simon Game. Built with HTML5 Canvas & JavaScript.
+Simon Game. Built with JavaScript.
 
 ###### Skills used
 * Javascript
+* Bootstrap
 * CSS3
-* HTML5
 
 ###### Objectives
 Build a CodePen.io app that is functionally similar to this: https://codepen.io/FreeCodeCamp/full/obYBjE.
