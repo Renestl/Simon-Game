@@ -1,64 +1,71 @@
 <html>
-	<head>
-		<title>Simon Game</title>
-		<!-- stylesheets -->
-		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<link href="https://fonts.googleapis.com/css?family=Coiny|Eczar:400,800" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="css/simon.css">
-	</head>
-	<body>
-		<div class='container'>
-			<div class="row">
-				<div class="col-sm-8 col-sm-offset-2 inner-container">
-					<div class="row">
-						<div class="col-sm-12 title">
-							<h1>Simon</h1>
-						</div> <!-- .title -->
-						</div> <!-- title .row-->
-					<div class="row ">
-						<div class="col-sm-8 col-sm-offset-2 console">
-							<div class="gameBtn">
-								<div class="greenRed">
-									<button class="btn btn-primary raised green"></button>
-									<button class="btn btn-primary raised red"></button>
-								</div><!-- .greenRed -->
-								<div class="yellowBlue">
-									<button class="btn btn-primary raised yellow"></button>
-									<button class="btn btn-primary raised blue"></button>
-								</div> <!-- .yellowBlue -->
-							</div> <!-- .gameBtn -->
-						</div>  <!-- .console -->
-							
-					</div> <!-- console .row -->
+<head>
+	<title>Simon&reg; Game</title>
 
-					<div class="row">
-						<div class="col-sm-2 col-sm-offset-5 col-md-2 col-md-offset-5">
-							<div class="score">Score</div>
-						</div><!-- controlBtn -->
-					</div><!-- controlBtn .row-->
-					<div class="row">
-						<div class="col-sm-6 col-sm-offset-3 controlBtn">
-							<button class="start">Start</button>
-						</div><!-- controlBtn -->
-					</div><!-- controlBtn .row-->
-					<div class="row">
-						<div class="col-sm-6 col-sm-offset-3 MainCtrl">
-							<button class="onOff">on/off</button>
-							<button class="strict">Strict</button>
-						</div><!-- controlBtn -->
-					</div><!-- controlBtn .row-->
-				</div> <!-- .inner-container -->
-			</div><!-- inner-container .row-->
-			
-			<footer>
-				<p>Not mobile friendly :(</p>
-			</footer>			
-									
-									
-		</div><!-- .container -->
-		<!-- Scripts -->
-		<script type="text/javascript" scr="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script type="text/javascript" scr="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/simon.js"></script>
-	</body>
+	<!-- stylesheets -->
+	<link href="https://fonts.googleapis.com/css?family=Coiny|Eczar:400,800" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/simon.css">
+
+</head>
+<body>
+
+	<!-- <div class='container'> -->
+		<div class='inner-container'>
+
+			<div class='title'>
+				<h1>Simon&reg;</h1>
+			</div>
+
+			<div class="console">
+				<div class="gameBtn">
+					<div class="greenRed">
+						<button class="btn green"></button>
+						<button class="btn red"></button>
+					</div> <!-- .greenRed -->
+					<div class="yellowBlue">
+						<button class="btn yellow"></button>
+						<button class="btn blue"></button>
+					</div>	<!-- .yellowBlue -->
+				</div> <!-- .gameBtn -->
+			</div> 	<!-- .console -->
+
+			<div class="score">
+				<div class="display">
+					<h1 class="counter led-off">--</h1>
+					<h3 class="label">Score</h3>
+				</div>
+			</div> <!-- .score -->
+
+			<div class="begin">
+				<div class="start" id='start'></div>
+				<h3 class="label">Start</h3>
+			</div> <!-- .begin -->
+
+			<div class="controls">
+				
+				<div class="inline">
+					<label class="switch" id="onOff">
+						<input type="checkbox">
+						<div class="slider round"></div>
+					</label>
+					<h3 class="switchLabel">On/Off</h3>
+				</div> <!-- .inline -->
+				
+				<div class="inline">
+					<label class="switch" id="strict">
+						<input type="checkbox" name="">
+						<div class="slider round"></div>
+					</label>
+					<h3 class="switchLabel">Strict</h3>
+				</div> <!-- .inline -->
+
+			</div> <!-- .controls -->
+
+		</div>		<!-- .inner-container -->
+	<!-- </div> --> 	<!-- .container -->
+
+	<script type="text/javascript" src='https://code.jquery.com/jquery-3.1.1.min.js' integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+	<script type="text/javascript" src='js/simon.js'></script>
+</body>
 </html>
