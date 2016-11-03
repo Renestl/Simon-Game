@@ -2,13 +2,15 @@
 body {
 	text-align: center;
 	margin: 20px;
+	font-size: 12px;
+	font-family: 'Eczar', 'Coiny', serif;
 }
 
 .row {
 	margin: 50px;
 }
 .inner-container {
-	background-color: grey;
+	background-color: gray;
 	border-radius: 20px;
 }
 
@@ -16,13 +18,17 @@ body {
 	background-color: #c0c0c0;
 	border-radius: 50px;
 }
+h1 {
+	font-weight: bold;
 
-.console {
+}
+
+/*.console {
 	background-color: #0d0d0d;
 	border-radius: 20px;
 	height: 30em;
 	padding: 15px 0;
-}
+}*/
 
 .score {
 	background-color: #330000;
@@ -55,60 +61,127 @@ button {
 	margin-top: 3px;
 }
 
+
+/* sets color of buttons and overrides bootstrap for properties for hover/focus/active */
 .green {
 	background: #006600;
 	left: 50%;
 	top:0%;
+	/*box-shadow: 0 3px 0 0 #007299;*/
+}
+.green:hover {
+	background: #006600;
+	border: 3px solid	black;
+}
+.green.light {
+	background-color: #0FD10F;
+  border-color: #006600;
 }
 
 .red {
 	background:#cc0000;
 	right: 0%;
 	bottom:50%;
+	/*box-shadow: 0 3px 0 0 #007299;*/
+}
+.red:hover {
+	background: #cc0000;
+	border: 3px solid	black;
+}
+.red.light {  
+    background-color: #F24949;
+    border-color: #cc0000; 
 }
 
 .blue {
 	background:#0080ff;
 	left: 50%;
 	bottom:0%;
+	/*box-shadow: 0 3px 0 0 #007299;*/
+}
+.blue:hover {
+	background: #0080ff;
+	border: 3px solid	black;
+}
+.blue.light {  
+    background-color: #59A9F7;
+    border-color: #0080ff; 
 }
 
 .yellow {
 		background:#ffff00;
 		left: 0;
 		bottom:25%;
+	/*	box-shadow: 0 3px 0 0 #007299;*/
+}
+.yellow:hover {
+	background: #ffff00;
+	border: 3px solid	black;
+}
+.yellow.light{  
+    background-color: #F7F76A;
+    border-color: #ffff00; 
+}
+
+.btn-primary.raised {
+	box-shadow: 2px 2px 0 0 #007299;
 }
 
 
 /* Media Query */
 
-@media (min-width: 300px) {
-	.console {
+@media (max-width: 500px) {
+	/*.console {
 		height: 10em;
-	}
+	}*/
 
 	.gameBtn button{
 		height: 1em;
 		width: 1em;
 	}
+	.score {
+	min-width: 50px;
+	}
+	.title {
+	min-width: 100px;
+	}
+	h1 {
+	font-size: 2em;
+	}
 }
 
 
 @media (min-width: 500px) {
-	.console {
-		height: 20em;
-	}
+	/*.console {
+		height: 25em;
+	}*/
 	.gameBtn button{
 		height: 6em;
 		width: 6em;
 	}
+	.title {
+	min-width: 150px;
+	}
+	h1 {
+	font-size: 3.5em;
+	}
+	.score {
+	max-width: 50px;
+	min-height: 50px;
+	margin: 0 auto;
+	}
+}
 
 	@media (min-width: 950px) {
-	.console {
+/*	.console {
 		height: 30em;
-	}
+		width: 30em;
+	}*/
 	.gameBtn button{
 		height: 10em;
 		width: 10em;
+	}
+	h1 {
+	font-size: 5em;
 	}
 }
