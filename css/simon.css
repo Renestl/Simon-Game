@@ -1,187 +1,179 @@
-
 body {
+	background: url('https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=');
+	background-position: center;
 	text-align: center;
 	margin: 20px;
-	font-size: 12px;
+	font-size: 100%;
 	font-family: 'Eczar', 'Coiny', serif;
 }
 
-.row {
-	margin: 50px;
-}
 .inner-container {
 	background-color: gray;
 	border-radius: 20px;
+	max-width: 75%;
+	min-height: 50%;
+	margin: 0 auto;
+	padding-top: 2%;
+	/*box-shadow: 3px 2px 5px 3px #000;*/
+	box-shadow: 0 0 30px 5px #000;
 }
 
 .title {
 	background-color: #c0c0c0;
 	border-radius: 50px;
-}
-h1 {
-	font-weight: bold;
-
-}
-
-/*.console {
-	background-color: #0d0d0d;
-	border-radius: 20px;
-	height: 30em;
-	padding: 15px 0;
-}*/
-
-.score {
-	background-color: #330000;
-	color: #ff0000;
-	border-radius: 20px;
-	border: 1px solid black;
+	max-width: 25%;
+	margin: 0 auto;
+	font-size: 1.5vw;
 }
 
-button {
-	text-transform: uppercase;
+.console:before {
+	content: '';
+	padding: 5% 0;
+	display: block;
+}
+
+.console {
+	background-color: black;
+	min-height: 45vw;
 }
 
 .gameBtn {
-	margin: 12% auto;
-	/*height: 10em;
-	width: 23.5em;*/
-  -webkit-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   -o-transform: rotate(45deg);
 	transform: rotate(45deg);*/
-	margin-top: 20px;
+	margin: 20px 0;
 }
 
-.gameBtn button{
-	text-align: center;
-	height: 10em;
-	width: 10em;
-	border: 3px solid	black;
-	margin-top: 3px;
+.gameBtn button {
+	height: 15vw;
+	width: 15vw;
 }
 
-
-/* sets color of buttons and overrides bootstrap for properties for hover/focus/active */
+/*sets colors of buttons*/
 .green {
 	background: #006600;
-	left: 50%;
-	top:0%;
-	/*box-shadow: 0 3px 0 0 #007299;*/
 }
-.green:hover {
-	background: #006600;
-	border: 3px solid	black;
-}
-.green.light {
+.green:active {
 	background-color: #0FD10F;
-  border-color: #006600;
+	border: 3px solid	#006600;
 }
 
 .red {
-	background:#cc0000;
-	right: 0%;
-	bottom:50%;
-	/*box-shadow: 0 3px 0 0 #007299;*/
-}
-.red:hover {
 	background: #cc0000;
-	border: 3px solid	black;
 }
-.red.light {  
-    background-color: #F24949;
-    border-color: #cc0000; 
+.red:active {
+	background-color: #f24949;
+	border: 3px solid	#cc0000;
 }
 
 .blue {
-	background:#0080ff;
-	left: 50%;
-	bottom:0%;
-	/*box-shadow: 0 3px 0 0 #007299;*/
-}
-.blue:hover {
 	background: #0080ff;
-	border: 3px solid	black;
 }
-.blue.light {  
-    background-color: #59A9F7;
-    border-color: #0080ff; 
+.blue:active {
+	background-color: #59a9f7;
+	border: 3px solid	#0080ff;
 }
 
 .yellow {
-		background:#ffff00;
-		left: 0;
-		bottom:25%;
-	/*	box-shadow: 0 3px 0 0 #007299;*/
-}
-.yellow:hover {
 	background: #ffff00;
-	border: 3px solid	black;
 }
-.yellow.light{  
-    background-color: #F7F76A;
-    border-color: #ffff00; 
-}
-
-.btn-primary.raised {
-	box-shadow: 2px 2px 0 0 #007299;
+.yellow:active {
+	background-color: #f7f76a;
+	border: 3px solid	#ffff00;
 }
 
-
-/* Media Query */
-
-@media (max-width: 500px) {
-	/*.console {
-		height: 10em;
-	}*/
-
-	.gameBtn button{
-		height: 1em;
-		width: 1em;
-	}
-	.score {
-	min-width: 50px;
-	}
-	.title {
-	min-width: 100px;
-	}
-	h1 {
-	font-size: 2em;
-	}
+.counter {
+	background-color: #330000;
+	color: #ff0000;
+	border-radius: 20px;
+	border: 1px solid black;
+	max-width: 25%;
+	margin: 4% auto;
 }
 
-
-@media (min-width: 500px) {
-	/*.console {
-		height: 25em;
-	}*/
-	.gameBtn button{
-		height: 6em;
-		width: 6em;
-	}
-	.title {
-	min-width: 150px;
-	}
-	h1 {
-	font-size: 3.5em;
-	}
-	.score {
-	max-width: 50px;
-	min-height: 50px;
+.start {
+	width: 40px;
+	height: 40px;
+	background-color: red;
 	margin: 0 auto;
-	}
+	border-radius: 50%;
+	border: 3px solid black;
+	box-shadow: 0 2px 3px #222;
 }
 
-	@media (min-width: 950px) {
-/*	.console {
-		height: 30em;
-		width: 30em;
-	}*/
-	.gameBtn button{
-		height: 10em;
-		width: 10em;
-	}
-	h1 {
-	font-size: 5em;
-	}
+.start:active {
+	box-shadow: none;
+}
+
+.inline {
+	display: inline-block;
+	margin: 0 5%;
+}
+
+/* The switch - the box around the slider */
+.switch {
+	position: relative;
+	display: inline-block;
+	height: 30px;
+	width: 60px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+	display:none;
+}
+
+/*The slider*/
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+	-webkit-transition: .4s;
+	-moz-transition: .4s;
+  -ms-transition: .4s;
+  -o-transition: .4s;
+	transition: .4s;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 22px;
+	width: 22px;
+	left: 4px;
+  bottom: 4px;
+	background-color: white;
+	-webkit-transition: .4s;
+	-moz-transition: .4s;
+  -ms-transition: .4s;
+  -o-transition: .4s;
+	transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(27px);
+  -ms-transform: translateX(27px);
+  transform: translateX(27px);
+}
+
+/*rounded slider*/
+.slider.round {
+  border-radius: 20px;
+}
+.slider.round:before {
+  border-radius: 50%;
 }
