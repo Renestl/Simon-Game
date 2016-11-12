@@ -19,12 +19,12 @@
 			<div class="console">
 				<div class="gameBtn">
 					<div class="greenRed">
-						<button class="btn green"></button>
-						<button class="btn red"></button>
+						<button class="btn green" id='green'></button>
+						<button class="btn red" id='red'></button>
 					</div> <!-- .greenRed -->
 					<div class="yellowBlue">
-						<button class="btn yellow"></button>
-						<button class="btn blue"></button>
+						<button class="btn yellow" id='yellow'></button>
+						<button class="btn blue" id='blue'></button>
 					</div>	<!-- .yellowBlue -->
 				</div> <!-- .gameBtn -->
 			</div> 	<!-- .console -->
@@ -45,16 +45,16 @@
 				
 				<div class="inline">
 					<label class="switch" id="onOff">
-						<input type="checkbox">
-						<div class="slider round"></div>
+						<input type="checkbox" name="onSwitch">
+						<div class="slider round power"></div>
 					</label>
 					<h3 class="switchLabel">On/Off</h3>
 				</div> <!-- .inline -->
 				
 				<div class="inline">
 					<label class="switch" id="strict">
-						<input type="checkbox" name="">
-						<div class="slider round"></div>
+						<input type="checkbox" name="gameMode">
+						<div class="slider round mode"></div>
 					</label>
 					<h3 class="switchLabel">Strict</h3>
 				</div> <!-- .inline -->
