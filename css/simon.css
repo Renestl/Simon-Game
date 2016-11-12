@@ -9,6 +9,7 @@ body {
 
 .inner-container {
 	background-color: gray;
+	border: 2px solid gray;
 	border-radius: 20px;
 	max-width: 75%;
 	min-height: 50%;
@@ -51,6 +52,11 @@ body {
 	width: 15vw;
 }
 
+.red,
+.blue {
+	margin-left: 2.5px;
+}
+
 /*sets colors of buttons*/
 .green {
 	background: #006600;
@@ -86,11 +92,15 @@ body {
 
 .counter {
 	background-color: #330000;
-	color: #ff0000;
+	color: #5E0101;
 	border-radius: 20px;
 	border: 1px solid black;
 	max-width: 25%;
 	margin: 4% auto;
+}
+
+.counterOn {
+	color: #ff0000;
 }
 
 .start {
@@ -126,6 +136,8 @@ body {
 }
 
 /*The slider*/
+
+/* background */
 .slider {
 	position: absolute;
 	cursor: pointer;
@@ -141,6 +153,7 @@ body {
 	transition: .4s;
 }
 
+/* slider ball */
 .slider:before {
 	position: absolute;
 	content: "";
@@ -176,4 +189,17 @@ input:checked + .slider:before {
 }
 .slider.round:before {
   border-radius: 50%;
+}
+
+@media (min-width:800px) {
+	.inner-container {
+		max-width: 50%;
+		}
+	.console {
+		min-height: 30vw;
+	}
+	.gameBtn button {
+		height: 10vw;
+		width: 10vw;
+	}
 }
