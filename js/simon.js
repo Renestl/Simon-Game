@@ -16,10 +16,6 @@ window.onload = function() {
 			$('button.btn').attr('disabled', false); //makes gameboard clickable
 			$('.counter').addClass('counterOn'); // makes score brighter red color
 			$('#start').click(startGame);
-<<<<<<< HEAD
-			$("input[name='gameMode']").prop('disabled', false); // allows strict mode to be selected
-=======
->>>>>>> game
 			$('#strict').click(modePlay); // activates strict mode
 
 			// toggles game to OFF
@@ -28,13 +24,8 @@ window.onload = function() {
 			$('button.btn').attr('disabled', true);
 			$('.counter').removeClass('counterOn');
 			$('#start').off('click');
-<<<<<<< HEAD
-			strictOff();
-			$("input[name='gameMode']").prop('disabled', 'disabled'); // disables strict mode
-=======
 			$('#strict').off('click');
 			reset();
->>>>>>> game
 		}
 	})
 
@@ -95,17 +86,11 @@ var sound = {
 		});
 	}
 
-<<<<<<< HEAD
-	function strictOff() {
-		$(".mode").removeClass('input:checked');
-		$(".mode").removeClass('.slider:before');
-=======
 	function reset() {
 		sequence = [];
 		count = 0;
 		mode = false;
 		$('.light').css('background-color', '#330000');
->>>>>>> game
 	}
 
 // TODO:
