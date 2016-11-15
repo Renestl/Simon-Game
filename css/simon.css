@@ -113,7 +113,27 @@ body {
 	box-shadow: 0 2px 3px #222;
 }
 
-.start:active {
+.light {
+	width: 10px;
+	height: 10px;
+	background-color: #330000;
+	margin: 0 auto;
+	border-radius: 50%;
+	border: 1px solid black;
+	margin-bottom: 2px;
+}
+
+.strict {
+	width: 40px;
+	height: 40px;
+	background-color: blue;
+	margin: 0 auto;
+	border-radius: 50%;
+	border: 3px solid black;
+	box-shadow: 0 2px 3px #222;
+}
+
+.start:active, .strict:active {
 	box-shadow: none;
 }
 
@@ -180,6 +200,8 @@ input:focus + .slider {
 input:checked + .slider:before {
   -webkit-transform: translateX(27px);
   -ms-transform: translateX(27px);
+  -moz-transition: translateX(27px);
+  -o-transition: translateX(27px);
   transform: translateX(27px);
 }
 
