@@ -16,7 +16,8 @@ window.onload = function() {
 			$('button.btn').attr('disabled', false); //makes gameboard clickable
 			$('.counter').addClass('counterOn'); // makes score brighter red color
 			$('#start').click(startGame);
-			$('#strict').click(modePlay);
+			$("input[name='gameMode']").prop('disabled', false); // allows strict mode to be selected
+			$('#strict').click(modePlay); // activates strict mode
 
 			// toggles game to OFF
 		} else {
@@ -24,6 +25,8 @@ window.onload = function() {
 			$('button.btn').attr('disabled', true);
 			$('.counter').removeClass('counterOn');
 			$('#start').off('click');
+			strictOff();
+			$("input[name='gameMode']").prop('disabled', 'disabled'); // disables strict mode
 		}
 	})
 
@@ -77,6 +80,11 @@ var sound = {
 				console.log("not strict");
 			}
 		});
+	}
+
+	function strictOff() {
+		$(".mode").removeClass('input:checked');
+		$(".mode").removeClass('.slider:before');
 	}
 
 // TODO:
