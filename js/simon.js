@@ -16,7 +16,7 @@ window.onload = function() {
 			$('button.btn').attr('disabled', false); //makes gameboard clickable
 			$('.counter').addClass('counterOn'); // makes score brighter red color
 			$('#start').click(startGame);
-			$('#strict').click(modePlay);
+			$('#strict').click(modePlay); // activates strict mode
 
 			// toggles game to OFF
 		} else {
@@ -24,6 +24,8 @@ window.onload = function() {
 			$('button.btn').attr('disabled', true);
 			$('.counter').removeClass('counterOn');
 			$('#start').off('click');
+			$('#strict').off('click');
+			reset();
 		}
 	})
 
@@ -32,8 +34,8 @@ window.onload = function() {
 
 var sequence = [],
 		count = 0,
-		colors = ['#green', '#red', '#blue', '#yellow'];
-
+		colors = ['#green', '#red', '#blue', '#yellow'],
+		mode = false;
 
 // audio variables
 var sound = {
@@ -64,23 +66,34 @@ var sound = {
 		});
 	}
 
+
 	// toggles Strict switch
 	function modePlay() {
-		$("input[name='gameMode']").click(function() {
-			$('.mode').toggleClass('input:checked');
-			// toggles mode to STRICT
-			if($('.mode').hasClass('input:checked') == true) {
-				console.log("strict");
+		$('#strict').click(function() {
+			
+			mode = !mode;
 
+			// toggles mode to STRICT
+			if(!mode) {
+				console.log("strict");
+				$('.light').css('background-color', '#ff0000');
+			
 			// toggles mode to EASY
 			} else {
 				console.log("not strict");
+				$('.light').css('background-color', '#330000');
 			}
 		});
 	}
 
+	function reset() {
+		sequence = [];
+		count = 0;
+		mode = false;
+		$('.light').css('background-color', '#330000');
+	}
+
 // TODO:
-// make strict toggle unclickable/unselectable
 // * Animate squares
 // 	- green
 // 	- red
