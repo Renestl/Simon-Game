@@ -1,112 +1,177 @@
 window.onload = function() {
-    console.log( "ready!" );
+	$('button.btn').attr('disabled', true);
+};
 
-	//disable buttons on init
-	$(function() {
-		$('button.btn').attr('disabled', true);
+
+
+var game = {
+	count: 0,
+	colors: ['#green', '#red', '#blue', '#yellow'],
+	compSequence: [],
+	playerSequence: [],
+	sound: {
+		green: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'),
+		red: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3'),
+		blue: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3'),
+		yellow: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3')
+	},
+	strict: false
+}
+
+function newGame() {
+	clearGame();
+}
+
+function clearGame() {
+	game.compSequence = [];
+	game.count = 0;
+	addCount();
+}
+
+function addCount() {
+	game.count++;
+	$('.counter').addClass('counterOn');
+
+	setTimeout(function() {
+		$('.counter').html(game.count);
+	}, 300);
+
+	gameMove();
+}
+
+function removeCount(){
+	$('.counter').removeClass('counterOn');
+	game.count = '--';
+	$('.counter').html(game.count);
+}
+
+function gameMove() {
+	game.compSequence.push(game.colors[(Math.floor(Math.random() * game.colors.length))]);
+
+	console.log(game.compSequence);
+
+	showMove();
+}
+
+function showMove() {
+	var i = 0;
+	var moves = setInterval(function() {
+		gamePlay(game.compSequence[i]);
+
+		i++;
+
+		if (i >= game.compSequence.length){
+			clearInterval(moves);
+		}
+	}, 800);
+
+	clearPlayerSequence();
+}
+
+function gamePlay(area) {
+	$(area).addClass('active');
+	sound(area);
+	
+	setTimeout(function() {
+		$(area).removeClass('active');
+	}, 300);
+}
+
+function sound(name) {
+	switch(name) {
+		case '#green': game.sound.green.play();
+			break;
+		case '#red': game.sound.red.play();
+			break;
+		case '#blue': game.sound.blue.play();
+			break;	
+		case '#yellow': game.sound.yellow.play();
+			break;	
+	};
+}
+
+function clearPlayerSequence() {
+	game.playerSequence = [];
+}
+
+$('.btn').click(function() {
+	var id = this.id;
+	
+	addPlayer(id);
+});
+
+function addPlayer(id) {
+	var area = '#' + id
+	
+	game.playerSequence.push(area);
+	playerTurn(area);
+}
+
+
+function playerTurn(x) {
+	if(game.playerSequence[game.playerSequence.length - 1] !== game.compSequence[game.playerSequence.length - 1]) {
+
+		if (game.strict) {
+			newGame();
+		} else {
+			console.log('try again')
+			showMove();
+		}
+	} else {
+		sound(x);
+		var winner = game.playerSequence.length === game.compSequence.length;
+		if (winner) {
+			if (game.count == 20) {
+				alert("Congrats, You Won!!");
+				setTimeout(function() {
+					newGame();
+				}, 300);
+			} else {
+				nextLevel();
+			}
+		}
+	}
+}
+
+function nextLevel() {
+	addCount();
+}
+
+function isStrict() {
+	$('#strict').click(function() {
+
+		if (game.strict == false) {
+			game.strict = true;
+			$('.light').css('background-color', '#ff0000');
+			newGame();
+		} else {
+			game.strict = false;
+			$('.light').css('background-color', '#330000');
+			newGame();
+		}
+
 	});
+}
 
-	// toggles On/Off switch
-	$("input[name='onSwitch']").click(function() {
+function isStart() {
+	$('#start').click(function() {
+		newGame();
+		isStrict();
+		$('button.btn').attr('disabled', false);
+	});
+}
+
+$("input[name='onSwitch']").click(function() {
 		$('.power').toggleClass('input:checked');
 
-		// toggles to ON, game play can start
 		if($('.power').hasClass('input:checked') == true) {
-			console.log("it's true");
-			$('button.btn').attr('disabled', false); //makes gameboard clickable
-			$('.counter').addClass('counterOn'); // makes score brighter red color
-			$('#start').click(startGame);
-			$('#strict').click(modePlay); // activates strict mode
-
-			// toggles game to OFF
-		} else {
-			console.log("not true");
+			isStart();
+		} 
+		else {
 			$('button.btn').attr('disabled', true);
-			$('.counter').removeClass('counterOn');
 			$('#start').off('click');
 			$('#strict').off('click');
-			reset();
+			game.compSequence = [];
+			removeCount();
 		}
-	})
-
-
-}; // end window.onload
-
-var sequence = [],
-		count = 0,
-		colors = ['#green', '#red', '#blue', '#yellow'],
-		mode = false;
-
-// audio variables
-var sound = {
-		greenNote: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'),
-		redNote: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3'),
-		blueNote: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3'),
-		yellowNote: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3')
-	};
-
-	// gives buttons sound on mouse click
-	$('.btn').click(function() {
-		switch(this.id) {
-			case 'green': sound.greenNote.play();
-				break;
-			case 'red': sound.redNote.play();
-				break;
-			case 'blue': sound.blueNote.play();
-				break;	
-			case 'yellow': sound.yellowNote.play();
-				break;	
-		}
-	});
-
-	// starts game play
-	function startGame() {
-		$('#start').click(function() {
-			console.log('You can start!');
-		});
-	}
-
-
-	// toggles Strict switch
-	function modePlay() {
-		$('#strict').click(function() {
-			
-			mode = !mode;
-
-			// toggles mode to STRICT
-			if(!mode) {
-				console.log("strict");
-				$('.light').css('background-color', '#ff0000');
-			
-			// toggles mode to EASY
-			} else {
-				console.log("not strict");
-				$('.light').css('background-color', '#330000');
-			}
-		});
-	}
-
-	function reset() {
-		sequence = [];
-		count = 0;
-		mode = false;
-		$('.light').css('background-color', '#330000');
-	}
-
-// TODO:
-// * Animate squares
-// 	- green
-// 	- red
-// 	- blue
-// 	- yellow
-// * Make animation random
-// * store sequence in array
-// * if statement
-// 	- correct, continue and push another random position into array
-// 	- incorrect, alert
-// 			if !== strict mode
-// 				+ replay sequence
-// 			else
-// 				restart game
-// * When 20 steps reached, alert
-// 	- restart game
+});
